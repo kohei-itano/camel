@@ -1,0 +1,8 @@
+<h2>about</h2>
+
+<%if admin_signed_in? %>
+	<%= link_to 'logout', destroy_admin_session_path, method: :delete %>
+<% else %>
+	<%= link_to 'sign up', new_admin_registration_path %>
+	<%= link_to 'login', new_admin_session_path %>
+<% end %>
