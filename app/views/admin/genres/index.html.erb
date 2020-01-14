@@ -1,0 +1,14 @@
+
+<%= form_for(@genre, {:url => admin_genres_path}) do |f| %>
+
+<%= f.text_field :name %>
+
+<%= f.submit %>
+
+<% end %>
+
+<% @genres.each do |genre| %>
+
+<%= genre.name %>
+
+<% end %>

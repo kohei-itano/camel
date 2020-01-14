@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 			when User
 				root_path
 			when Admin
-				about_path
+				admin_genres_path
 		end
 	end
 
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 			when User
 				root_path
 			when Admin
-				about_path
+				admin_genres_path
 		end
 	end
 

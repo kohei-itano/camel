@@ -1,23 +1,24 @@
 class UsersController < ApplicationController
 
-def index
+	def index
 
-end
+	end
 
-def show
+	def show
+		@user = User.find(params[:id])
 
-end
+	end
 
-def edit
+	def edit
 
-end
+	end
 
-def followers
+	def followers
 
-end
+	end
 
-def follows
+	def follows
 
-end
+	end
 
 end

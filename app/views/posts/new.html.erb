@@ -1,0 +1,24 @@
+
+<%= notice %>
+
+	<h2>新規投稿</h2>
+
+	<%= form_for(@post) do |f| %>
+		<div class="field row">
+			<%= f.attachment_field :post_image %>
+		</div>
+
+		<div class="field row">
+			<strong>title</strong>
+			<%= f.text_field :title  %>
+		</div>
+
+		<div class="field row">
+			<strong>body</strong>
+			<%= f.text_area :body %>
+		</div>
+
+		<div class="actions row">
+			<%= f.submit %>
+		</div>
+	<% end %>

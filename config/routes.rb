@@ -7,8 +7,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
   	resources :genres
-
-  	get 'top' => 'admins#top'
 	end
 
 
@@ -30,8 +28,7 @@ Rails.application.routes.draw do
 	end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: "homes#top"
-
+  root to: "posts#index"
 
   get 'about' => 'homes#about'
 end

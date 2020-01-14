@@ -1,0 +1,28 @@
+
+<h2>投稿一覧</h2>
+	<table class="table">
+		<% @posts.each do |post|%>
+		<tr>
+			<th>name</th>
+			<th>image</th>
+			<th>date</th>
+			<th>title</th>
+			<th>text</th>
+		</tr>
+		<tr>
+			<td><%= link_to user_path(post.user.id) do%>
+			<%= post.user.name %>
+			<% end %>
+			</td>
+			<td><%= attachment_image_tag post,:post_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb"%>
+			</td>
+			<td><%= post.created_at.strftime('20%y年%m月%d日%H') %></td>
+			<td>
+			<%= link_to post_path(post.id) do%>
+			<%= post.title %>
+			<% end %>
+			</td>
+			<td><%= post.body %></td>
+			<% end %>
+		</tr>
+	</table>
