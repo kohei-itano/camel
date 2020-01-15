@@ -5,11 +5,36 @@
 	<th>image</th>
 	<th>title</th>
 	<th>text</th>
+	<th></th>
+	<th></th>
 </tr>
 <tr>
 <td><%= @user.name %></td>
 <td><%= attachment_image_tag @post, :post_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb" %></td>
 <td><%= @post.title %></td>
 <td><%= @post.body %></td>
+<td><%= link_to "編集", edit_post_path %></td>
+<td><%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "消していいですか？"}%></td>
 </tr>
+</table>
+<table class="table">
+	<tr>
+		<th>day</th>
+		<th>name</th>
+		<th>comment</th>
+	</tr>
+	<% @post.post_comments.each do |post_comment| %>
+	<tr>
+		<td><%= post_comment.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+		<td><%= post_comment.user.name %></td>
+		<td><%= post_comment.comment %></td>
+		<td><%= link_to "削除する", post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete %>
+	</tr>
+	<% end %>
+</table>
+<table>
+	<%= form_for [@post,@post_comment] do |f| %>
+	<%= f.text_area :comment, rows:'1', class: "form-control",placeholder: "コメントをここに" %>
+  <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+  <% end %>
 </table>

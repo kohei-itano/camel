@@ -1,0 +1,19 @@
+
+<%= notice %>
+<h2>投稿編集ページ</h2>
+
+<%= form_for(@post) do |f| %>
+	<div class="filed row">
+		<%= f.attachment_field :post_image %>
+	</div>
+	<div class="field row">
+		<%= f.text_field :title %>
+	</div>
+	<div class="filed row">
+		<%= f.text_area :body %>
+	</div>
+	<div class="actions row">
+		<%= f.submit %>
+	</div>
+
+<% end %>
