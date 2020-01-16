@@ -1,14 +1,24 @@
 
+<div class="col-xs-5">
+<h2>ジャンル追加</h2>
+
 <%= form_for(@genre, {:url => admin_genres_path}) do |f| %>
 
+<div class="row">
 <%= f.text_field :name %>
-
+</div>
+<div class="actions row">
 <%= f.submit %>
-
+</div>
 <% end %>
 
 <% @genres.each do |genre| %>
-
-<%= genre.name %>
-
+	<table class="table">
+		<tr>
+			<td width="100"><%= genre.name %></td>
+			<td><%= link_to "編集", edit_admin_genre_path(genre.id) %></td>
+			<td><%= link_to "削除", admin_genre_path(genre.id), method: :delete, data: {confirm: "消していいですか？"} %></td>
+		</tr>
+	</table>
 <% end %>
+</div>

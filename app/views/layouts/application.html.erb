@@ -27,6 +27,8 @@
             <% elsif admin_signed_in? %>
             <%= link_to 'logout', destroy_admin_session_path, method: :delete %>
             <% else %>
+            <li><%= link_to "投稿一覧", posts_path %></li>
+            <li><%= link_to "ユーザー一覧", users_path %></li>
             <li><%= link_to 'アバウト', about_path %></li>
             <li><%= link_to 'sign up', new_user_registration_path %></li>
             <li><%= link_to 'login', new_user_session_path %></li>

@@ -9,6 +9,10 @@
 		</div>
 
 		<div class="field row">
+			<%= f.collection_select :genre_id, Genre.all, :id, :name %>
+		</div>
+
+		<div class="field row">
 			<strong>title</strong>
 			<%= f.text_field :title  %>
 		</div>

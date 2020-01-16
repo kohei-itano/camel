@@ -8,6 +8,7 @@
 			<th>date</th>
 			<th>title</th>
 			<th>text</th>
+			<th>nice</th>
 		</tr>
 		<tr>
 			<td><%= link_to user_path(post.user.id) do%>
@@ -23,6 +24,7 @@
 			<% end %>
 			</td>
 			<td><%= post.body %></td>
+			<td><%= post.favorites.count %></td>
 			<% end %>
 		</tr>
 	</table>

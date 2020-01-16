@@ -11,7 +11,7 @@
 			<td><%= user.name %></td>
 			<td><%= user.introduction %></td>
 			<td><%= link_to "詳細", user_path(user.id) %></td>
-			<td><%= link_to "削除", user_path(user.id), method: :delete %></td>
+			<td><%= link_to "削除", user_path(user.id), method: :delete, data: {confirm: "消していいですか？"} %></td>
 		</tr>
 	</table>
 <% end %>
