@@ -1,4 +1,18 @@
 
+<h2>ジャンル</h2>
+<table class="table">
+	<% @genres.each do |genre| %>
+	<tr>
+		<td><%= link_to genres_path(genre.id) do%>
+			<%= genre.name %>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+
+
+
 <h2>投稿一覧</h2>
 	<table class="table">
 		<% @posts.each do |post|%>
@@ -17,7 +31,7 @@
 			</td>
 			<td><%= attachment_image_tag post,:post_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb"%>
 			</td>
-			<td><%= post.created_at.strftime('20%y年%m月%d日%H') %></td>
+			<td><%= post.created_at.strftime('20%y年%m月%d日%H時') %></td>
 			<td>
 			<%= link_to post_path(post.id) do%>
 			<%= post.title %>
@@ -27,4 +41,5 @@
 			<td><%= post.favorites.count %></td>
 			<% end %>
 		</tr>
+		<td><%= paginate @posts, class: "paginate" %></td>
 	</table>

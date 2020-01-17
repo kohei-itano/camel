@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 		get :followers, on: :member
 	end
 
+  get "/:genre_id/genre", to: "posts#index", as: "genres"
+
 	resources :posts do
 	  resource :favorites, only: [:create, :destroy]
 	  resources :post_comments, only: [:create, :destroy]
@@ -31,4 +33,6 @@ Rails.application.routes.draw do
   root to: "posts#index"
 
   get 'about' => 'homes#about'
+
+  get "search" => "searches#search"
 end
