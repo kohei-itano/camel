@@ -25,6 +25,13 @@
                   <li><%= link_to '投稿一覧', posts_path %></li>
                   <li><%= link_to 'ユーザー一覧', users_path %></li>
                   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                  <% @genres.each do |genre| %>
+                  <li>
+                    <%= link_to genres_path(genre.id) do%>
+                      <%= genre.name %>
+                      <% end %>
+                  </li>
+                  <% end %>
                   <% elsif admin_signed_in? %>
                   <li><%= link_to 'logout', destroy_admin_session_path, method: :delete %></li>
                   <% else %>
@@ -33,6 +40,13 @@
                   <li><%= link_to 'アバウト', about_path %></li>
                   <li><%= link_to 'sign up', new_user_registration_path %></li>
                   <li><%= link_to 'login', new_user_session_path %></li>
+                  <% @genres.each do |genre| %>
+                  <li>
+                    <%= link_to genres_path(genre.id) do%>
+                      <%= genre.name %>
+                      <% end %>
+                  </li>
+                  <% end %>
                   <% end %>
                 </ul>
                 </nav>

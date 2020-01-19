@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
+		@genres = Genre.all
 		if current_user == @user
 		else
 			flash[:notice] = "エラー"

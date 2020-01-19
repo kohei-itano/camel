@@ -1,11 +1,9 @@
 class PostsController < ApplicationController
 
 	def index
-		@genres = Genre.all
 		if params[:genre_id]
-			@posts = Post.where(genre_id: params[:genre_id])
+			@posts = Post.where(genre_id: params[:genre_id]).page(params[:page]).reverse_order
 		else
-			@posts = Post.all
 			@posts = Post.page(params[:page]).reverse_order
 		end
 

@@ -1,5 +1,5 @@
 
-<h2>ジャンル</h2>
+<!-- <h2>ジャンル</h2>
 <table class="table">
 	<% @genres.each do |genre| %>
 	<tr>
@@ -9,35 +9,40 @@
 		</td>
 	</tr>
 	<% end %>
-</table>
+</table> -->
 
-<h2>投稿一覧</h2>
-	<table class="table">
+	<div class="col-xs-8 index">
+		<h2>投稿一覧</h2>
 		<% @posts.each do |post|%>
-		<tr>
-			<th>name</th>
-			<th>image</th>
-			<th>date</th>
-			<th>title</th>
-			<th>text</th>
-			<th>nice</th>
-		</tr>
-		<tr>
-			<td><%= link_to user_path(post.user.id) do%>
-			<%= post.user.name %>
-			<% end %>
-			</td>
-			<td><%= attachment_image_tag post,:post_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb"%>
-			</td>
-			<td><%= post.created_at.strftime('20%y年%m月%d日%H時') %></td>
-			<td>
-			<%= link_to post_path(post.id) do%>
-			<%= post.title %>
-			<% end %>
-			</td>
-			<td><%= post.body %></td>
-			<td><%= post.favorites.count %></td>
-			<% end %>
-		</tr>
+		<div class="posts">
+			<div class="image" style="text-align: center;">
+				<%= attachment_image_tag post,:post_image, :fill, 300, 200%>
+			</div>
+				<table class="table tableborder-less">
+					<tr>
+						<th style="text-align: center; ">name</th>
+						<th style="text-align: center; "><%= link_to user_path(post.user.id) do%>
+						<%= post.user.name %>
+						<% end %>
+						</th>
+					</tr>
+					<tr>
+						<th style="text-align: center;">day</th>
+						<th style="text-align: center;"><%= post.created_at.strftime('20%y年%m月%d日%H時') %></th>
+					</tr>
+					<tr>
+						<th style="text-align: center;">title</th>
+						<th style="text-align: center;">
+						<%= link_to post_path(post.id) do%>
+						<%= post.title %>
+						<% end %>
+						</th>
+					</tr>
+						<!-- <td><%= post.body %></td>
+						<td><%= post.favorites.count %></td> -->
+				</table>
+		</div>
+		<% end %>
 		<td><%= paginate @posts, class: "paginate" %></td>
-	</table>
+	</div>
+	
