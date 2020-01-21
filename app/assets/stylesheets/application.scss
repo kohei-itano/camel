@@ -54,18 +54,38 @@ body {
   margin: auto;
 }
 
-.tableborder-less {
-  width: 70%;
-  margin: 0 auto;
+.show {
+  position: absolute;
+  padding: 55px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
-.tableborder-less tr, th {
-    border: 1px solid white;
-    border-top: 1px solid white;
-
+.image {
+  text-align: center;
 }
 
+th {
+  text-align: center;
+}
+td {
+  word-break: break-word;
+}
 
+.paginate {
+  text-align: center;
+}
+
+.users {
+  margin-top: 10px;
+}
+
+.userinfo {
+  border: 1px #dcdcdc solid;
+}
 
 
 /* ---------------------------- */

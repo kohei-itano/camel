@@ -1,17 +1,26 @@
-<h2>ユーザー一覧</h2>
-<% @users.each do |user| %>
-	<table class="table">
-		<tr>
-			<th>image</th>
-			<th>name</th>
-			<th>introduction<th>
-		</tr>
-		<tr>
-			<td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb" %></td>
-			<td><%= user.name %></td>
-			<td><%= user.introduction %></td>
-			<td><%= link_to "詳細", user_path(user.id) %></td>
-			<td><%= link_to "削除", user_path(user.id), method: :delete, data: {confirm: "消していいですか？"} %></td>
-		</tr>
-	</table>
-<% end %>
+<div class="col-xs-8 index">
+	<h2>ユーザー一覧</h2>
+	<% @users.each do |user| %>
+		<div class="users">
+			<div class="image">
+				<%= attachment_image_tag user, :profile_image, :fill, 300, 200%>
+			</div>
+				<table class="table">
+					<tr>
+						<th>name</th>
+						<th><%= link_to user_path(user.id) do %>
+							<%= user.name %>
+							<% end %>
+						</th>
+					</tr>
+					<tr>
+						<th> introduction</th>
+						<td><%= user.introduction %></td>
+					</tr>
+				</table>
+		</div>
+	<% end %>
+	<div class="paginate">
+		<td><%= paginate @users, class: "paginate" %></td>
+	</div>
+</div>
