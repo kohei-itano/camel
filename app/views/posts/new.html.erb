@@ -1,28 +1,26 @@
-
-<%= notice %>
-
+<div class="col-xs-6 new">
+	<%= notice %>
 	<h2>新規投稿</h2>
-
 	<%= form_for(@post) do |f| %>
+		<strong>image</strong>
 		<div class="field row">
 			<%= f.attachment_field :post_image %>
 		</div>
-
+		<strong>category</strong>
 		<div class="field row">
 			<%= f.collection_select :genre_id, Genre.all, :id, :name %>
 		</div>
-
+		<strong>title</strong>
 		<div class="field row">
-			<strong>title</strong>
-			<%= f.text_field :title  %>
+			<%= f.text_field :title, :size=>"40x10", :placeholder => "文字数20字以内"  %>
 		</div>
-
+		<strong>body</strong>
 		<div class="field row">
-			<strong>body</strong>
-			<%= f.text_area :body %>
+			<%= f.text_area :body, :size=>"60x20", :placeholder => "文字数2500字以内"  %>
 		</div>
 
 		<div class="actions row">
 			<%= f.submit %>
 		</div>
 	<% end %>
+</div>

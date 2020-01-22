@@ -1,20 +1,20 @@
-<h2>ユーザー編集</h2>
-
-
-<%= form_for(@user) do |f| %>
-
-	<div class="filed row">
-		<%= f.attachment_field :profile_image %>
-	</div>
-	<div class="field row">
-		<%= f.text_field :name %>
-	</div>
-	<div class="filed row">
-		<%= f.text_area :introduction %>
-	</div>
-	<div class="actions row">
-		<%= f.submit %>
-	</div>
-
-<% end %>
-
+<div class="col-xs-6 new">
+	<h2>ユーザー編集</h2>
+	<%= form_for(@user) do |f| %>
+		<strong>image</strong>
+		<div class="filed row">
+			<%= f.attachment_field :profile_image %>
+		</div>
+		<strong>name</strong>
+		<div class="field row">
+			<%= f.text_field :name, :size=>"40x10", :placeholder => "2~20文字以内" %>
+		</div>
+		<strong>introduction</strong>
+		<div class="filed row">
+			<%= f.text_area :introduction, :size=>"40x10", :placeholder => "100文字以内" %>
+		</div>
+		<div class="actions row">
+			<%= f.submit %>
+		</div>
+	<% end %>
+</div>

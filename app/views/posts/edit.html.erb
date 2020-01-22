@@ -1,19 +1,22 @@
+<div class="col-xs-6 new">
+	<%= notice %>
+	<h2>投稿編集ページ</h2>
+	<%= form_for(@post) do |f| %>
+		<<strong>image</strong>
+		<div class="filed row">
+			<%= f.attachment_field :post_image %>
+		</div>
+		<strong>title</strong>
+		<div class="field row">
+			<%= f.text_field :title, :size=>"40x10", :placeholder => "20文字以内" %>
+		</div>
+		<strong>body</strong>
+		<div class="filed row">
+			<%= f.text_area :body,  :size=>"60x20", :placeholder => "2500文字以内" %>
+		</div>
+		<div class="actions row">
+			<%= f.submit %>
+		</div>
 
-<%= notice %>
-<h2>投稿編集ページ</h2>
-
-<%= form_for(@post) do |f| %>
-	<div class="filed row">
-		<%= f.attachment_field :post_image %>
-	</div>
-	<div class="field row">
-		<%= f.text_field :title %>
-	</div>
-	<div class="filed row">
-		<%= f.text_area :body %>
-	</div>
-	<div class="actions row">
-		<%= f.submit %>
-	</div>
-
-<% end %>
+	<% end %>
+</div>

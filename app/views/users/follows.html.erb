@@ -1,24 +1,30 @@
-<h2>follows</h2>
-<table class="table">
-	<% @users.each do |user| %>
-	<tr>
-		<th>image</th>
-		<th>name</th>
-	</tr>
-	<tr>
-		<td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb" %>
-		</td>
-		<td><%= user.name %></td>
-		<td>フォロー数<%= user.active_relationships.count %></td>
-		<td>フォロワー数<%= user.passive_relationships.count %></td>
-		<% if current_user != user %>
-			<% if user.followed_by?(current_user) %>
-			<td><%= link_to "フォロー済み", user_relationships_path(user),method: :delete %></td>
-			<% else %>
-			<td><%= link_to "フォローする", user_relationships_path(user), method: :post %></td>
+<div class="col-xs-8 follow">
+	<h2>follows</h2>
+	<table class="table topfollow">
+		<% @users.each do |user| %>
+		<tr>
+			<th>image</th>
+			<th>name</th>
+			<th>follows</th>
+			<th>followers</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<td align="center"><%= attachment_image_tag user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb" %>
+			</td>
+			<td align="center"><%= user.name %></td>
+			<td align="center"><%= user.active_relationships.count %></td>
+			<td align="center"><%= user.passive_relationships.count %></td>
+			<% if current_user != user %>
+				<% if user.followed_by?(current_user) %>
+				<td align="center"><%= link_to "フォロー済み", user_relationships_path(user),method: :delete %></td>
+				<% else %>
+				<td align="center"><%= link_to "フォローする", user_relationships_path(user), method: :post %></td>
+				<% end %>
 			<% end %>
+			<td align="center"><%= link_to "投稿一覧", user_path(user) %></td>
+		</tr>
 		<% end %>
-		<td><%= link_to "投稿一覧", user_path(user) %></td>
-	</tr>
-	<% end %>
-</table>
+	</table>
+</div>

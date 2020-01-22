@@ -7,67 +7,75 @@
 			<table class="table">
 				<tr>
 					<th>name</th>
-					<th>
+					<td>
 						<%= link_to user_path(@user.id) do %>
 						<%= @user.name %>
 						<% end %>
-						</th>
+					</td>
 				</tr>
 				<tr>
 					<th>title</th>
-					<th><%= @post.title %></th>
+					<td><%= @post.title %></td>
 				</tr>
 				<tr>
 					<th>text</th>
 					<td><%= @post.body %></td>
 				</tr>
 				<tr>
-				<th>favorite</th>
-				<% if @post.favorited_by?(current_user) %>
-					<th>
-						<%= link_to post_favorites_path(@post), method: :delete do %>
-						<i class="glyphicon glyphicon-heart" style="color: red;"></i>
-							<%= @post.favorites.count %>いいね
+					<th>favorite</th>
+					<% if user_signed_in? %>
+						<% if @post.favorited_by?(current_user) %>
+							<th>
+								<%= link_to post_favorites_path(@post), method: :delete do %>
+								<i class="glyphicon glyphicon-heart" style="color: red;"></i>
+									<%= @post.favorites.count %>いいね
+								<% end %>
+							</th>
+						<% else %>
+							<th>
+								<%= link_to post_favorites_path(@post), method: :post do %>
+								<i class="glyphicon glyphicon-heart-empty"></i>
+								<%= @post.favorites.count %>
+								<% end %>
+							</th>
 						<% end %>
-					</th>
-				<% else %>
-					<th>
-						<%= link_to post_favorites_path(@post), method: :post do %>
-						<i class="glyphicon glyphicon-heart-empty"></i>
-						<%= @post.favorites.count %>
-						<% end %>
-					</th>
-				<% end %>
+					<%else%>
+						<th><%= @post.favorites.count %>いいね</th>
+					<% end %>
 				</tr>
-				<tr>
-					<th><%= link_to "編集", edit_post_path(@post) %></th>
-					<th><%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "消していいですか？"}%></th>
-				</tr>
-			</table>
-			<h2>コメント</h2>
-			<table class="table">
-				<tr>
-					<th>date</th>
-					<th>name</th>
-					<th>comment</th>
-					<th></th>
-				</tr>
-				<% @post.post_comments.each do |post_comment| %>
+				<%if current_user == @user %>
 					<tr>
-						<th><%= post_comment.created_at.strftime("%Y/%m/%d") %></th>
-						<th><%= post_comment.user.name %></th>
-						<td><%= post_comment.comment %></td>
-						<th>
-							<%= link_to "削除", post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete %>
-						</th>
+						<th><%= link_to "編集", edit_post_path(@post) %></th>
+						<th><%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "消していいですか？"}%></th>
 					</tr>
 				<% end %>
 			</table>
-			<table>
-				<%= form_for [@post,@post_comment] do |f| %>
-				<%= f.text_area :comment, rows:'1', class: "form-control",placeholder: "コメントをここに" %>
-				<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
-				<% end %>
-			</table>
+			<% if user_signed_in? %>
+				<h2>コメント</h2>
+				<table class="table">
+					<tr>
+						<th>date</th>
+						<th>name</th>
+						<th width="200">comment</th>
+						<th></th>
+					</tr>
+					<% @post.post_comments.each do |post_comment| %>
+						<tr>
+							<th><%= post_comment.created_at.strftime("%Y/%m/%d") %></th>
+							<th><%= post_comment.user.name %></th>
+							<td><%= post_comment.comment %></td>
+							<th>
+								<%= link_to "削除", post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete %>
+							</th>
+						</tr>
+					<% end %>
+				</table>
+				<table>
+					<%= form_for [@post,@post_comment] do |f| %>
+					<%= f.text_area :comment, rows:'1', class: "form-control",placeholder: "コメントをここに" %>
+					<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+					<% end %>
+				</table>
+			<% end %>
 	</div>
 </div>

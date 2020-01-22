@@ -64,6 +64,29 @@ body {
   margin: auto;
 }
 
+.new {
+  position: absolute;
+  padding: 55px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 50px
+}
+
+.follow {
+  position: absolute;
+  padding: 55px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+
+
 .image {
   text-align: center;
 }
@@ -83,36 +106,44 @@ td {
   margin-top: 10px;
 }
 
+.topfollow {
+  margin-top: 10px;
+}
+
 .userinfo {
   border: 1px #dcdcdc solid;
+}
+
+h3 {
+  border-bottom: #000 2px solid;
 }
 
 
 /* ---------------------------- */
 /* --- ハンバーガーアイコン --- */
 /* ---------------------------- */
- 
- 
+
+
 #hm-icon{
   position: fixed;
   right: 20px;
   top: 20px;
   z-index: 10;
 }
- 
+
 .menu-trigger,
 .menu-trigger span {
   display: inline-block;
   transition: all .4s;
   box-sizing: border-box;
 }
- 
+
 .menu-trigger {
   position: relative;
   width: 30px;
   height: 44px;
 }
- 
+
 .menu-trigger span {
   position: absolute;
   left: 0;
@@ -121,60 +152,63 @@ td {
   background-color: #000;
   border-radius: 4px;
 }
- 
+
 .menu-trigger span:nth-of-type(1) {
   top: 0;
 }
- 
+
 .menu-trigger span:nth-of-type(2) {
   top: 20px;
 }
- 
+
 .menu-trigger span:nth-of-type(3) {
   bottom: 0;
 }
- 
+
 .menu-trigger.active span:nth-of-type(1) {
   -webkit-transform: translateY(20px) rotate(-45deg);
   transform: translateY(20px) rotate(-45deg);
-  background-color: #fff;
+  background-color: #000;
 }
- 
+
 .menu-trigger.active span:nth-of-type(2) {
   opacity: 0;
 }
- 
+
 .menu-trigger.active span:nth-of-type(3) {
   -webkit-transform: translateY(-20px) rotate(45deg);
   transform: translateY(-20px) rotate(45deg);
-  background-color: #fff;
+  background-color: #000;
 }
- 
- 
+
+
 /* ------------------------ */
 /* ------ spメニュー ------ */
 /* ------------------------ */
- 
- 
+
+
 #sp-menu {
   position: fixed;
   top: 0;
   right: 0;
-  background: #000;
-  color: #fff;
+  bottom: 30px;
+  background: #fff;
+  color: #000;
   width: 30%;
   min-height: 100%;
   display: none;
   z-index: 9;
+  overflow: auto;
 }
- 
+
 #sp-menu li{
-  text-align: center;
+  text-align: right;
+  margin-right: 20px;
   margin-bottom: 30px;
 }
- 
+
 #sp-menu a{
-  color: #fff;
+  color: #000;
   text-decoration: none;
   font-weight: bold;
 }
