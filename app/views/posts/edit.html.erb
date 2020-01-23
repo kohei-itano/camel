@@ -1,4 +1,4 @@
-<div class="col-xs-6 new">
+<div class="col-xs-6 all">
 	<%= notice %>
 	<h2>投稿編集ページ</h2>
 	<%= form_for(@post) do |f| %>
@@ -15,7 +15,7 @@
 			<%= f.text_area :body,  :size=>"60x20", :placeholder => "2500文字以内" %>
 		</div>
 		<div class="actions row">
-			<%= f.submit %>
+			<%= f.submit class: "btn btn-default pull-right" %>
 		</div>
 
 	<% end %>

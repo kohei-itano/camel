@@ -1,4 +1,4 @@
-<div class="col-xs-8 show">
+<div class="col-xs-8 all">
 	<h2>投稿詳細</h2>
 	<div class="user">
 		<div class="image">
@@ -28,7 +28,7 @@
 							<th>
 								<%= link_to post_favorites_path(@post), method: :delete do %>
 								<i class="glyphicon glyphicon-heart" style="color: red;"></i>
-									<%= @post.favorites.count %>いいね
+									<%= @post.favorites.count %>いいね！済
 								<% end %>
 							</th>
 						<% else %>
@@ -40,13 +40,16 @@
 							</th>
 						<% end %>
 					<%else%>
-						<th><%= @post.favorites.count %>いいね</th>
+						<th>
+							<%= @post.favorites.count %>
+							<i class="glyphicon glyphicon-thumbs-up">いいね！</i>
+						</th>
 					<% end %>
 				</tr>
 				<%if current_user == @user %>
 					<tr>
-						<th><%= link_to "編集", edit_post_path(@post) %></th>
-						<th><%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "消していいですか？"}%></th>
+						<th><%= link_to "投稿編集", edit_post_path(@post), class: "btn btn-default btn-sm" %></th>
+						<th><%= link_to "投稿削除", post_path(@post), method: :delete, data: {confirm: "投稿を消していいですか？"},class: "btn btn-danger btn-sm"%></th>
 					</tr>
 				<% end %>
 			</table>
@@ -55,7 +58,7 @@
 				<table class="table">
 					<tr>
 						<th>date</th>
-						<th>name</th>
+						<th width="200">name</th>
 						<th width="200">comment</th>
 						<th></th>
 					</tr>
@@ -65,16 +68,18 @@
 							<th><%= post_comment.user.name %></th>
 							<td><%= post_comment.comment %></td>
 							<th>
-								<%= link_to "削除", post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete %>
+								<%= link_to "削除", post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete,class: "btn btn-danger btn-sm" %>
 							</th>
 						</tr>
 					<% end %>
 				</table>
 				<table>
 					<%= form_for [@post,@post_comment] do |f| %>
-					<%= f.text_area :comment, rows:'1', class: "form-control",placeholder: "コメントをここに" %>
-					<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+					<%= f.text_area :comment, rows:'2', class: "form-control",placeholder: "コメント入力" %>
+					<div class="actions row">
+					<%= f.submit class: "btn btn-default pull-right" %>
 					<% end %>
+				</div>
 				</table>
 			<% end %>
 	</div>

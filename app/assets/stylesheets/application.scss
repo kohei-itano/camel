@@ -17,10 +17,6 @@
 @import "bootstrap";
 
 
-.title {
-
-}
-
 header {
 	width:100%;
 	background-color:white;
@@ -28,7 +24,7 @@ header {
 
 .logo {
 	color:black;
-	font-size: 60px;
+	font-size: 40px;
 	text-align: center;
 }
 
@@ -36,15 +32,13 @@ ul {
   list-style: none;
 }
 
-body {
-	margin-top: 50px;
-}
 
 .actions {
 	margin-top:10px;
+  margin-bottom:10px
 }
 
-.index {
+.all {
   position: absolute;
   padding: 55px;
   top: 0;
@@ -52,40 +46,8 @@ body {
   left: 0;
   right: 0;
   margin: auto;
+  margin-top: 50px;
 }
-
-.show {
-  position: absolute;
-  padding: 55px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.new {
-  position: absolute;
-  padding: 55px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  margin-top: 50px
-}
-
-.follow {
-  position: absolute;
-  padding: 55px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-
 
 .image {
   text-align: center;
