@@ -1,18 +1,5 @@
-
-<!-- <h2>ジャンル</h2>
-<table class="table">
-	<% @genres.each do |genre| %>
-	<tr>
-		<td><%= link_to genres_path(genre.id) do%>
-			<%= genre.name %>
-			<% end %>
-		</td>
-	</tr>
-	<% end %>
-</table> -->
-
 <div class="col-xs-8 all">
-	<h2>投稿一覧</h2>
+	<h2>Posts List</h2>
 	<% @posts.each do |post|%>
 		<div class="posts">
 			<div class="image">
@@ -21,8 +8,7 @@
 				<table class="table">
 					<tr>
 						<th>name</th>
-						<th><%= post.user.name %>
-						</th>
+						<th><%= post.user.name %></th>
 					</tr>
 					<tr>
 						<th>date</th>
@@ -35,9 +21,9 @@
 					<tr>
 						<th>title</th>
 						<th>
-						<%= link_to post_path(post.id) do%>
-						<%= post.title %>
-						<% end %>
+							<%= link_to post_path(post.id) do%>
+								<%= post.title %>
+							<% end %>
 						</th>
 					</tr>
 				</table>

@@ -8,8 +8,7 @@
 				<table class="table">
 					<tr>
 						<th>name</th>
-						<th><%= post.user.name %>
-						</th>
+						<th><%= post.user.name %></th>
 					</tr>
 					<tr>
 						<th>day</th>
@@ -18,9 +17,9 @@
 					<tr>
 						<th>title</th>
 						<th>
-						<%= link_to post_path(post.id) do%>
-						<%= post.title %>
-						<% end %>
+							<%= link_to post_path(post.id) do%>
+								<%= post.title %>
+							<% end %>
 						</th>
 					</tr>
 				</table>

@@ -1,8 +1,8 @@
-
 <div class="col-xs-9">
-	<h2 style="margin-top: 50px;" >マイページ</h2>
+
+	<h4 style="margin-top: 150px;" >User Page</h4>
 	<% @user.posts.each do |post| %>
-		<table class="table users" >
+		<table class="table user" >
 			<tr>
 				<th>Image</th>
 				<th>Genre</th>
@@ -15,7 +15,7 @@
 				<td align="center"><%= post.genre.name %></td>
 				<td align="center">
 					<%= link_to post_path(post.id)  do%>
-					<%= truncate(post.title, length:10) %>
+						<%= truncate(post.title, length:10) %>
 					<%end%>
 				</td>
 				<td align="center">
@@ -24,7 +24,7 @@
 				</td>
 				<td align="center"><%= post.post_comments.count %>
 					<i class="glyphicon glyphicon-comment"></i>
-				 </td>
+				</td>
 			</tr>
 			<% if current_user == @user %>
 				<tr>
@@ -37,7 +37,8 @@
 	<% end %>
 </div>
 
-<div class="col-xs-3 " style="margin-top: 100px;">
+<div class="col-xs-3 " style="margin-top: 180px;">
+	<%= notice %>
 	<table class="table userinfo">
 		<tr>
 			<th colspan="2"><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle profile-thunb" %></th>
@@ -58,7 +59,7 @@
 		<tr>
 			<th colspan="2">
 				フォロワー<%= link_to followers_user_path(@user) do %>
-				<%= @user.passive_relationships.count %>
+					<%= @user.passive_relationships.count %>
 				<% end %>
 			</th>
 		</tr>
@@ -81,7 +82,7 @@
 				</tr>
 				<tr>
 					<th colspan="2">
-					<%= link_to "", edit_user_path(@user), class: 'col-xs-12 btn btn-default glyphicon glyphicon-wrench edit' %>
+						<%= link_to "", edit_user_path(@user), class: 'col-xs-12 btn btn-default glyphicon glyphicon-wrench edit' %>
 					</th>
 				</tr>
 			<%end%>

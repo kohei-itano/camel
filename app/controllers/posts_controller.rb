@@ -7,7 +7,6 @@ class PostsController < ApplicationController
 		else
 			@posts = Post.page(params[:page]).reverse_order
 		end
-
 	end
 
 	def show
@@ -33,7 +32,7 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 		if @post.update(post_params)
-			 flash[:notice] = "successfully"
+			 flash[:notice] = "投稿情報変更しました"
 			 redirect_to post_path(@post.id)
 			else
 				render action: :edit

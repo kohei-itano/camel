@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		@genres = Genre.all
 		if current_user == @user
 		else
-			flash[:notice] = "エラー"
+			flash[:notice] = "error"
 			redirect_to user_path(current_user.id)
 		end
 	end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 			flash[:notice] = "ユーザー情報変更しました"
 			redirect_to user_path(@user)
 		else
-			flash[:notice] = "エラー"
+			flash[:notice] = "error"
 			render action: :edit
 		end
 	end
