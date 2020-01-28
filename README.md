@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ruby-2.5.7
+* name
+Camel
+* Description
+画像投稿サイト
+いいね、フォロー／フォロワー
+* Usage
+ログイン前は投稿一覧、詳細、ユーザー一覧、詳細閲覧可能
+ログイン／サインアップ後　投稿、詳細閲覧、いいね、他ユーザーのフォロー、ジャンル、ユーザー、投稿検索可能
+* Author
+板野航平
