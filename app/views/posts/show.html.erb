@@ -30,12 +30,12 @@
 					<th>favorite</th>
 					<% if user_signed_in? %>
 						<% if @post.favorited_by?(current_user) %>
-							<th>
+							<td>
 								<%= link_to post_favorites_path(@post), method: :delete do %>
 									<i class="glyphicon glyphicon-heart" style="color: red;"></i>
 									<%= @post.favorites.count %>いいね！済
 								<% end %>
-							</th>
+							</td>
 						<% else %>
 							<th>
 								<%= link_to post_favorites_path(@post), method: :post do %>
@@ -45,10 +45,10 @@
 							</th>
 						<% end %>
 					<%else%>
-						<th>
+						<td>
 							<%= @post.favorites.count %>
 							<i class="glyphicon glyphicon-thumbs-up">いいね！</i>
-						</th>
+						</td>
 					<% end %>
 				</tr>
 				<%if current_user == @user %>
