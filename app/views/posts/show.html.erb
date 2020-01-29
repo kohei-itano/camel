@@ -3,7 +3,7 @@
 	<%= notice %>
 	<div class="user">
 		<div class="image">
-			<%= attachment_image_tag @post, :post_image, :fill, 610, 600 %>
+			<%= attachment_image_tag @post, :post_image, :fill, 700, 0 %>
 		</div>
 			<table class="table">
 				<tr>
@@ -14,6 +14,10 @@
 						<% end %>
 					</td>
 				</tr>
+				<tr>
+						<th>genre</th>
+						<td><%= @post.genre.name %></td>
+					</tr>
 				<tr>
 					<th>title</th>
 					<td><%= @post.title %></td>

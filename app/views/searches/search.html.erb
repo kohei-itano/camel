@@ -15,6 +15,10 @@
 						<th><%= post.created_at.strftime('20%y年%m月%d日%H時') %></th>
 					</tr>
 					<tr>
+						<th>genre</th>
+						<th><%= post.genre.name %></th>
+					</tr>
+					<tr>
 						<th>title</th>
 						<th>
 							<%= link_to post_path(post.id) do%>
