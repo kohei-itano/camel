@@ -33,16 +33,16 @@
 							<td>
 								<%= link_to post_favorites_path(@post), method: :delete do %>
 									<i class="glyphicon glyphicon-heart" style="color: red;"></i>
-									<%= @post.favorites.count %>いいね！済
 								<% end %>
+								<%= @post.favorites.count %>
 							</td>
 						<% else %>
-							<th>
+							<td>
 								<%= link_to post_favorites_path(@post), method: :post do %>
 									<i class="glyphicon glyphicon-heart-empty"></i>
-									<%= @post.favorites.count %>
 								<% end %>
-							</th>
+								<%= @post.favorites.count %>
+							</td>
 						<% end %>
 					<%else%>
 						<td>
