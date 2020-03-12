@@ -23,7 +23,7 @@ f<!DOCTYPE html>
               <li><h3>Search Posts</h3></li>
               <li>
                 <%= form_tag(search_path, method: :get) do %>
-                  <%= text_field_tag :search, params[:search], :placeholder => "ワード検索" %>
+                  <%= text_field_tag :search, params[:search], :placeholder => "キーワードを検索" %>
                   <%= submit_tag 'Search', class: 'btn btn-default btn-sm' %>
                 <% end %>
               </li>
@@ -51,7 +51,7 @@ f<!DOCTYPE html>
               <li><h3>Search Posts</h3></li>
               <li>
                 <%= form_tag(search_path, method: :get) do %>
-                  <%= text_field_tag :search, params[:search], :placeholder => "ワード検索" %>
+                  <%= text_field_tag :search, params[:search], :placeholder => "キーワードを検索" %>
                   <%= submit_tag 'Search', class: 'btn btn-default btn-sm' %>
                 <% end %>
               </li>
